@@ -223,7 +223,8 @@ var teacherSectionCoursesEtcs = (from prof in dc.Professors
                                 join section in dc.Sections on prof.Section_ID equals section.Section_ID
                                 join courses in dc.Courses on prof.Professor_ID equals courses.Professor_ID  
                                 select new { prof.Professor_Name, section.Section_Name,nameCourse= courses.Course_Name ,etc = courses.Course_Ects})
-                                .OrderByDescending(item=>item.etc);
+                                .OrderByDescending(item=>item.etc); // perd des rows
+
 var query = from prof in dc.Professors
             join section in dc.Sections on prof.Section_ID equals section.Section_ID
             join courses in dc.Courses on prof.Professor_ID equals courses.Professor_ID into coursesGroup
