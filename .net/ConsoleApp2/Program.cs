@@ -178,18 +178,18 @@ foreach (var student in resultPerSection10)
 Console.WriteLine("-------------------------------5.4-----------------------------------");
 
 var sectionsWithMoreThan3Students = from section in dc.Sections
-                                    join student in dc.Students on section.Section_ID equals student.Section_ID
-                                    group student by section into sectionGroup // ou into sectiongroup apres le join mais faut trouver moyen pour le where
+                                    join student in dc.Students on section.Section_ID equals student.Section_ID into sectionGroup
+                                  //  group student by section into sectionGroup // ou into sectiongroup apres le join mais faut trouver moyen pour le where
                                     where sectionGroup.Count() > 3
                                     select new
                                     {
-                                        Section = sectionGroup.Key,
+                                        Section = section.Section_Name,
                                         AverageResults = sectionGroup.Average(student => student.Year_Result)
                                     };
 
 foreach (var sct in sectionsWithMoreThan3Students)
 {
-    Console.WriteLine(" {0} {1}", sct.Section.Section_Name, sct.AverageResults);
+    Console.WriteLine(" {0} {1}", sct.Section, sct.AverageResults);
 }
 
 Console.WriteLine("-------------------------------5.6-----------------------------------");
