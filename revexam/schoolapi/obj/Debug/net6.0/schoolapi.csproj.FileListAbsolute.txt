@@ -1,0 +1,7 @@
+E:\..net\revexam\schoolapi\obj\Debug\net6.0\schoolapi.csproj.AssemblyReference.cache
+E:\..net\revexam\schoolapi\obj\Debug\net6.0\schoolapi.GeneratedMSBuildEditorConfig.editorconfig
+E:\..net\revexam\schoolapi\obj\Debug\net6.0\schoolapi.AssemblyInfoInputs.cache
+E:\..net\revexam\schoolapi\obj\Debug\net6.0\schoolapi.AssemblyInfo.cs
+E:\..net\revexam\schoolapi\obj\Debug\net6.0\schoolapi.csproj.CoreCompileInputs.cache
+E:\..net\revexam\schoolapi\obj\Debug\net6.0\schoolapi.MvcApplicationPartsAssemblyInfo.cs
+E:\..net\revexam\schoolapi\obj\Debug\net6.0\schoolapi.MvcApplicationPartsAssemblyInfo.cache

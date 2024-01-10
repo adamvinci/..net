@@ -1,0 +1,61 @@
+﻿<Window
+    x:Class="examseptembbre.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:examseptembbre"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <DataTemplate x:Key="listboxTemplate">
+            <StackPanel Orientation="Horizontal">
+                <!--  id du produit  -->
+                <TextBlock Text="{Binding ProductID}" />
+                <!--  nom du produit  -->
+                <TextBlock Text="{Binding ProductName}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="totalVenteTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Key}" />
+                <TextBlock Text=": " />
+                <TextBlock Text="{Binding Value}" />
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <ListBox
+            Name="listBox"
+            Margin="38,30,451,307"
+            ItemTemplate="{StaticResource listboxTemplate}"
+            ItemsSource="{Binding Products}" />
+        <Grid DataContext="{Binding SelectedItem, ElementName=listBox}">
+
+            <Label Margin="41,153,589,216" Content="ProductID" />
+            <Label Margin="41,199,589,178" Content="ProductName" />
+            <Label Margin="41,261,589,113" Content="SupplierContactName" />
+            <Label Margin="41,326,589,57" Content="QuantityPerUnit" />
+
+            <TextBlock Margin="175,153,428,227" Text="{Binding ProductID}" />
+            <TextBox Margin="175,207,428,174" Text="{Binding ProductName, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Margin="175,270,428,108" Text="{Binding SupplierContactName}" />
+
+            <TextBox
+                Margin="175,324,428,55"
+                RenderTransformOrigin="0.5,0.5"
+                Text="{Binding QuantityPerUnit}" />
+        </Grid>
+        <Button
+            Margin="179,372,428,10"
+            Command="{Binding UpdateProduct}"
+            Content="maj" />
+        <ListBox
+            Margin="567,30,29,205"
+            ItemTemplate="{StaticResource totalVenteTemplate}"
+            ItemsSource="{Binding TotalVente}" />
+    </Grid>
+</Window>

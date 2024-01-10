@@ -1,0 +1,58 @@
+﻿<Window
+    x:Class="gestionTache.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:gestionTache"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid>
+        <DataGrid
+            x:Name="taches"
+            Margin="0,10,0,318"
+            ItemsSource="{Binding}" />
+        <Label Margin="0,116,10,244" Content="Description : " />
+        <TextBox
+            x:Name="description"
+            Margin="84,131,337,259"
+            Text="{Binding ElementName=taches, Path=SelectedItem.Description}" />
+        <Label Margin="4,190,92,198" Content="Priorite : " />
+        <ComboBox
+            x:Name="PrioriteValeur"
+            Width="120"
+            Margin="84,201,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            ItemsSource="{Binding}"
+            RenderTransformOrigin="0.633,1.186"
+            SelectedItem="{Binding ElementName=taches, Path=SelectedItem.Priorite}" />
+        <Label Margin="4,241,10,116" Content="Echeance : " />
+        <DatePicker
+            x:Name="datePicker"
+            Margin="84,248,503,132"
+            SelectedDate="{Binding ElementName=taches, Path=SelectedItem.Date}" />
+        <Label Margin="2,323,34,56" Content="Terminé ? : " />
+        <CheckBox
+            x:Name="TermineValeur"
+            Margin="97,328,556,60"
+            IsChecked="{Binding ElementName=taches, Path=SelectedItem.Termine}" />
+        <Button
+            Margin="134,362,503,10"
+            Click="Button_Click"
+            Content="Ajouter"
+            RenderTransformOrigin="0.465,-0.414" />
+        <Button
+            Margin="356,362,281,10"
+            Click="Button_Click2"
+            Content="Supprimer"
+            RenderTransformOrigin="0.465,-0.414" />
+        <Button
+            Margin="570,362,67,10"
+            Click="Button_Click3"
+            Content="Vider"
+            RenderTransformOrigin="0.465,-0.414" />
+    </Grid>
+</Window>

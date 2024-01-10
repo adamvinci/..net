@@ -1,0 +1,14 @@
+E:\..net\revexam\ConsoleAppllication\bin\Debug\net6.0\ConsoleAppllication.exe
+E:\..net\revexam\ConsoleAppllication\bin\Debug\net6.0\ConsoleAppllication.deps.json
+E:\..net\revexam\ConsoleAppllication\bin\Debug\net6.0\ConsoleAppllication.runtimeconfig.json
+E:\..net\revexam\ConsoleAppllication\bin\Debug\net6.0\ConsoleAppllication.dll
+E:\..net\revexam\ConsoleAppllication\bin\Debug\net6.0\ConsoleAppllication.pdb
+E:\..net\revexam\ConsoleAppllication\obj\Debug\net6.0\ConsoleAppllication.GeneratedMSBuildEditorConfig.editorconfig
+E:\..net\revexam\ConsoleAppllication\obj\Debug\net6.0\ConsoleAppllication.AssemblyInfoInputs.cache
+E:\..net\revexam\ConsoleAppllication\obj\Debug\net6.0\ConsoleAppllication.AssemblyInfo.cs
+E:\..net\revexam\ConsoleAppllication\obj\Debug\net6.0\ConsoleAppllication.csproj.CoreCompileInputs.cache
+E:\..net\revexam\ConsoleAppllication\obj\Debug\net6.0\ConsoleAppllication.dll
+E:\..net\revexam\ConsoleAppllication\obj\Debug\net6.0\refint\ConsoleAppllication.dll
+E:\..net\revexam\ConsoleAppllication\obj\Debug\net6.0\ConsoleAppllication.pdb
+E:\..net\revexam\ConsoleAppllication\obj\Debug\net6.0\ConsoleAppllication.genruntimeconfig.cache
+E:\..net\revexam\ConsoleAppllication\obj\Debug\net6.0\ref\ConsoleAppllication.dll

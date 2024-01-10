@@ -1,0 +1,54 @@
+﻿<Window
+    x:Class="examjanier.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:examjanier"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <DataTemplate x:Key="listTemplate">
+            <StackPanel Margin="0,5,0,5">
+                <Label
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Content="{Binding ProductId}" />
+                <Label
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Content="{Binding ProductName}" />
+            </StackPanel>
+        </DataTemplate>
+
+    </Window.Resources>
+    <Grid>
+        <ComboBox
+            Name="ListProduit"
+            Margin="44,24,517,323"
+            ItemTemplate="{StaticResource listTemplate}"
+            ItemsSource="{Binding ListProduit}"
+            SelectedItem="{Binding SelectedProduit}" />
+
+        <Grid DataContext="{Binding SelectedItem, ElementName=ListProduit}">
+
+            <Label Margin="27,129,640,246" Content="ProductID" />
+            <Label Margin="24,166,636,221" Content="ProductName" />
+            <Label Margin="27,217,627,165" Content="Categorie" />
+            <Label Margin="27,269,627,111" Content="Fournisseur" />
+
+
+            <Label Margin="94,129,526,248" Content="{Binding ElementName=ListProduit, Path=SelectedItem.ProductId}" />
+            <Label Margin="108,166,448,213" Content="{Binding ProductName}" />
+            <Label Margin="94,217,462,154" Content="{Binding Categorie}" />
+            <Label Margin="100,269,508,87" Content="{Binding Fournisseur}" />
+        </Grid>
+        <Button
+            Margin="71,360,509,20"
+            Command="{Binding Abandonner}"
+            Content="Abandonner le produit Selectionné" />
+        <DataGrid Margin="442,24,30,27" ItemsSource="{Binding ListProduitPays}" />
+    </Grid>
+</Window>
