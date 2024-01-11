@@ -1,0 +1,42 @@
+﻿<Window
+    x:Class="taches.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:taches"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid Margin="0,10,0,0">
+        <DataGrid
+            x:Name="datagrid"
+            Margin="0,0,28,341"
+            ItemsSource="{Binding}" />
+        <Label Margin="1,88,421,256" Content="Description :" />
+        <TextBox
+            x:Name="description"
+            Margin="82,100,465,268"
+            Text="{Binding ElementName=datagrid, Path=SelectedItem.Description}" />
+        <Label Margin="1,173,355,185" Content="Priorité :" />
+        <ComboBox
+            x:Name="combox"
+            Margin="104,182,527,197"
+            ItemsSource="{Binding}"
+            SelectedItem="{Binding ElementName=datagrid, Path=SelectedItem.Priorite}" />
+        <Label Margin="1,232,255,123" Content="Echeance :" />
+        <DatePicker
+            x:Name="datepicker"
+            Margin="134,239,409,137"
+            SelectedDate="{Binding ElementName=datagrid, Path=SelectedItem.Date}" />
+        <Label Margin="1,301,255,54" Content="Terminé ? :" />
+        <CheckBox
+            x:Name="termine"
+            Margin="82,306,414,70"
+            IsChecked="{Binding ElementName=datagrid, Path=SelectedItem.Termine}" />
+        <Button Margin="303,354,303,13" Click="Button_ClickSupprimer">Supprimer</Button>
+        <Button Margin="57,349,549,18" Click="Button_ClickAjouter">Ajouter</Button>
+        <Button Margin="545,354,61,13" Click="Button_ClickVider">Vider</Button>
+    </Grid>
+</Window>

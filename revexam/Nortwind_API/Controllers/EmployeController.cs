@@ -44,6 +44,24 @@ namespace Nortwind_API.Controllers
             await _unitOfWork.EmployeesRepository.DeleteAsync(emp);
             return Ok("deleted");
         }
+        [HttpPost]
+        public async Task createOne(EmployeeDTO emp)
+        {
+            emp.EmployeeId = 0;
+            Employee e = dtoToEmploye(emp);
+            await _unitOfWork.EmployeesRepository.InsertAsync(e);
+
+        }
+
+        [HttpPut]
+        public async Task updateOne(EmployeeDTO emp)
+        {
+
+            Employee e = dtoToEmploye(emp);
+            await _unitOfWork.EmployeesRepository.SaveAsync(e);
+
+
+        }
 
         private static EmployeeDTO employeToDto(Employee employee) => new EmployeeDTO
         {

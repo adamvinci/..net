@@ -1,0 +1,66 @@
+﻿<Window
+    x:Class="janvier.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:janvier"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <DataTemplate x:Key="listTemplate">
+            <StackPanel Margin="0,5,0,5">
+                <Label
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Content="{Binding ProductID}" />
+                <Label
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Content="{Binding ProductName}" />
+            </StackPanel>
+        </DataTemplate>
+
+    </Window.Resources>
+    <Grid>
+        <ComboBox
+            Name="productList"
+            Margin="33,29,486,303"
+            ItemTemplate="{StaticResource listTemplate}"
+            ItemsSource="{Binding Products}"
+            SelectedItem="{Binding SelectedProduct}" />
+        <Grid DataContext="{Binding SelectedItem, ElementName=productList}">
+            <StackPanel Margin="10,139,676,53">
+                <Label
+                    Width="91"
+                    Height="42"
+                    Margin="6"
+                    Content="ProductID " />
+                <Label
+                    Width="89"
+                    Height="46"
+                    Margin="6"
+                    Content="ProductName " />
+                <Label
+                    Width="84"
+                    Height="44"
+                    Margin="6"
+                    Content="Categorie " />
+                <Label
+                    Height="38"
+                    Margin="6"
+                    Content="Fournisseur :" />
+
+            </StackPanel>
+            <Label Margin="129,145,558,241" Content="{Binding ProductID}" />
+            <Label Margin="129,208,558,178" Content="{Binding ProductName}" />
+            <Label Margin="126,261,560,125" Content="{Binding Categorie}" />
+            <Label Margin="124,309,563,77" Content="{Binding Fournisseur}" />
+            <DataGrid Margin="387,23,38,31" ItemsSource="{Binding DataContext.ProductPerCountry, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />
+        </Grid>
+        <Button Margin="46,346,506,28" Command="{Binding AbandonnerProduit}">Abandonner le produit selectionné</Button>
+
+    </Grid>
+</Window>

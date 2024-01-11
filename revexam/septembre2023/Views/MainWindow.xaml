@@ -1,0 +1,75 @@
+﻿<Window
+    x:Class="septembre2023.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:septembre2023"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <DataTemplate x:Key="listboxTemplate">
+            <StackPanel Orientation="Horizontal">
+                <!--  id du produit  -->
+                <TextBlock Text="{Binding ProductID}" />
+                <!--  nom du produit  -->
+                <TextBlock Text="{Binding ProductName}" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="listboxTotalTemplate">
+            <StackPanel Orientation="Horizontal">
+
+                <TextBlock Text="{Binding Key}" />
+                <TextBlock Text=": " />
+                <TextBlock Text="{Binding Value}" />
+            </StackPanel>
+        </DataTemplate>
+
+    </Window.Resources>
+    <Grid>
+        <ListBox
+            Name="ProductList"
+            Margin="24,19,501,313"
+            ItemTemplate="{StaticResource listboxTemplate}"
+            ItemsSource="{Binding Products}" />
+        <Grid DataContext="{Binding SelectedItem, ElementName=ProductList}">
+            <StackPanel Margin="10,138,476,74">
+                <Label
+                    Width="313"
+                    Height="58"
+                    Content="ProductID" />
+                <Label
+                    Width="313"
+                    Height="58"
+                    Content="ProductName" />
+                <Label
+                    Width="313"
+                    Height="58"
+                    Content="SupplierContactName" />
+                <Label
+                    Width="313"
+                    Height="58"
+                    Content="QuantityPerUnit" />
+            </StackPanel>
+            <TextBox
+                Margin="140,138,476,240"
+                IsEnabled="False"
+                Text="{Binding ProductID, Mode=OneWay}" />
+            <TextBox Margin="140,204,476,178" Text="{Binding ProductName, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox
+                Margin="140,261,476,128"
+                IsEnabled="False"
+                Text="{Binding SupplierContactName, Mode=OneWay}" />
+            <TextBox Margin="140,311,476,74" Text="{Binding QuantityPerUnit, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+        <Button Margin="110,374,446,10" Command="{Binding UpdateCommand}">maj</Button>
+
+        <ListBox
+            Margin="418,19,42,268"
+            ItemTemplate="{StaticResource listboxTotalTemplate}"
+            ItemsSource="{Binding TotalVentes}" />
+    </Grid>
+</Window>
